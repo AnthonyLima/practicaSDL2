@@ -22,6 +22,6 @@ protected:
 protected:
 	bool g_run;
 	Window* g_window;
-}
+};
 
 #endif /* gameSDL */

@@ -1,12 +1,14 @@
 #include "Window.hpp"
 
+using namespace std;
+
 //constructor de la ventana indicando las dimensiones
 Window::Window(int width, int height):w_width(width),w_height(height)
 {}
 
 Window::~Window()
 {
-	hide();
+	destruirVentana();
 }
 
 void Window::mostrarVentana()
@@ -31,7 +33,7 @@ void Window::mostrarVentana()
 		rendererIndex = 0;
 		rendererType = SDL_RENDERER_ACCELERATED;
 
-		w_renderer = SDL_CreatedRenderer(w_window,rendererIndex,rendererType);
+		w_renderer = SDL_CreateRenderer(w_window,rendererIndex,rendererType);
 	}
 }
 
@@ -39,4 +41,14 @@ void Window::destruirVentana()
 {
 	SDL_DestroyRenderer(w_renderer);
 	SDL_DestroyWindow(w_window);
+}
+
+void Window::limpiarRender()
+{
+	SDL_RenderClear(w_renderer);
+}
+
+void Window::mostrarRender()
+{
+	SDL_RenderPresent(w_renderer);
 }

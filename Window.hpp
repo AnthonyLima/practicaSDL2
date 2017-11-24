@@ -1,3 +1,4 @@
+#ifndef _ventanaSDL_
 #define _ventanaSDL_
 
 #include <SDL2/SDL.h>
@@ -11,12 +12,14 @@ public:
 	~Window();
 	void mostrarVentana();
 	void destruirVentana();
+	void limpiarRender();
+	void mostrarRender();
 	SDL_Renderer* w_renderer;
 
 private:
 	int w_width;
 	int w_height;
 	SDL_Window* w_window;
-}
+};
 
 #endif /* ventanaSDL */

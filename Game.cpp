@@ -1,6 +1,12 @@
 #include "Game.hpp"
 #include "Window.cpp"
 
+//limitar cuadros por segundo
+const int fps = 60;
+const int frameDelay = 1000/fps;
+Uint32 frameStart;
+int frameTime;
+
 Game::Game()
 {}
 
@@ -13,9 +19,15 @@ void Game::start()
 	onAwake();
 	while(g_run)
 	{
+		frameStart = SDL_GetTicks();
+
 		onInput();
 		onUpdate();
 		onRender();
+
+		frameTime = SDL_GetTicks() - frameStart;
+		if(frameDelay > frameTime)
+			SDL_Delay(frameDelay - frameTime);
 	}
 	onFinish();
 }
@@ -32,12 +44,14 @@ void Game::onAwake()
 	g_window->mostrarVentana();
 }
 
+//eliminacion de recursos utilizados
 void Game::onFinish()
 {
 	g_window->destruirVentana();
 	SDL_Quit();
 }
 
+//proceso de captura de acciones del jugador
 void Game::onInput()
 {
 	SDL_Event event;
@@ -65,6 +79,7 @@ void Game::onInput()
 void Game::onUpdate()
 {}
 
+//procedimiento de recargar la pantalla con la nueva informacion
 void Game::onRender()
 {
 	g_window->limpiarRender();

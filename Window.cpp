@@ -11,6 +11,7 @@ Window::~Window()
 	destruirVentana();
 }
 
+//procedimiento de creacion de la ventana y renderizado
 void Window::mostrarVentana()
 {
 	if(w_window != NULL)

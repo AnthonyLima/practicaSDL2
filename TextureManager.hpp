@@ -13,4 +13,4 @@ public:
 private:
 };
 
-#endif /* textureManager */
+#endif /* TextureManager */

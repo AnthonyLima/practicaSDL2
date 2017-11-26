@@ -37,10 +37,13 @@ void Game::end()
 	g_run = false;
 }
 
+//procedimiento de inicio
 void Game::onAwake()
 {
 	SDL_Init(SDL_INIT_VIDEO);
 	g_window = new Window(800,600);
+
+	//realiza los procedimientos de sdl2 para crear la ventana, por defecto hace uso de OpenGL
 	g_window->mostrarVentana();
 }
 

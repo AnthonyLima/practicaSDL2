@@ -17,7 +17,19 @@ GameObject::~GameObject()
 {}
 
 void GameObject::render()
-{}
+{
+	SDL_RenderCopy(objRenderer,objTexture,&srcRect,&desRect);
+}
 
 void GameObject::update()
-{}
+{
+	this->changeDest();
+}
+
+void GameObject::changeDest()
+{
+	desRect.x = xPos;
+	desRect.y = yPos;
+	desRect.h = srcRect.h * 2;
+	desRect.w = srcRect.w * 2;
+}

@@ -2,7 +2,7 @@
 #define _GameObject_
 
 #include "Window.hpp"
-#include "TextureManager.hpp"
+#include "TextureManager.cpp"
 
 class GameObject
 {
@@ -11,6 +11,8 @@ public:
 	~GameObject();
 	void render();
 	void update();
+protected:
+	void changeDest();
 private:
 	int xPos;
 	int yPos;

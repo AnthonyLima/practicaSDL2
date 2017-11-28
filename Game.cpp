@@ -1,11 +1,14 @@
 #include "Game.hpp"
 #include "Window.cpp"
+#include "GameObject.cpp"
 
 //limitar cuadros por segundo
 const int fps = 60;
 const int frameDelay = 1000/fps;
 Uint32 frameStart;
 int frameTime;
+
+GameObject* objPrueba;
 
 Game::Game()
 {}
@@ -45,6 +48,8 @@ void Game::onAwake()
 
 	//realiza los procedimientos de sdl2 para crear la ventana, por defecto hace uso de OpenGL
 	g_window->mostrarVentana();
+
+	objPrueba = new GameObject("sprites/navePrueba.png",g_window->w_renderer,100,100,50,50);
 }
 
 //eliminacion de recursos utilizados
@@ -80,11 +85,14 @@ void Game::onInput()
 }
 
 void Game::onUpdate()
-{}
+{
+	objPrueba->update();
+}
 
 //procedimiento de recargar la pantalla con la nueva informacion
 void Game::onRender()
 {
 	g_window->limpiarRender();
+	objPrueba->render();
 	g_window->mostrarRender();
 }

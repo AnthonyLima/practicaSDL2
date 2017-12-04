@@ -49,7 +49,7 @@ void Game::onAwake()
 	//realiza los procedimientos de sdl2 para crear la ventana, por defecto hace uso de OpenGL
 	g_window->mostrarVentana();
 
-	objPrueba = new GameObject("sprites/navePrueba.png",g_window->w_renderer,100,100,50,50);
+	objPrueba = new GameObject("sprites/pixelTank.png",g_window->w_renderer,100,100,25,25);
 }
 
 //eliminacion de recursos utilizados
@@ -75,6 +75,18 @@ void Game::onInput()
 				{
 					case SDLK_ESCAPE:
 						this->end();
+						break;
+					case SDLK_w:
+						objPrueba->changePosY(-1);
+						break;
+					case SDLK_s:
+						objPrueba->changePosY(1);
+						break;
+					case SDLK_d:
+						objPrueba->changePosX(1);
+						break;
+					case SDLK_a:
+						objPrueba->changePosX(-1);
 						break;
 				}
 				break;

@@ -33,3 +33,13 @@ void GameObject::changeDest()
 	desRect.h = srcRect.h * 2;
 	desRect.w = srcRect.w * 2;
 }
+
+void GameObject::changePosX(int	cant)
+{
+	xPos = xPos + cant;
+}
+
+void GameObject::changePosY(int cant)
+{
+	yPos = yPos + cant;
+}

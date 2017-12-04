@@ -11,6 +11,8 @@ public:
 	~GameObject();
 	void render();
 	void update();
+	void changePosX(int cant);
+	void changePosY(int cant);
 protected:
 	void changeDest();
 private:

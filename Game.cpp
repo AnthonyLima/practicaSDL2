@@ -49,7 +49,7 @@ void Game::onAwake()
 	//realiza los procedimientos de sdl2 para crear la ventana, por defecto hace uso de OpenGL
 	g_window->mostrarVentana();
 
-	objPrueba = new GameObject("sprites/pixelTank.png",g_window->w_renderer,100,100,25,25);
+	objPrueba = new GameObject("sprites/spriteMovTank.png",g_window->w_renderer,100,100,25,25);
 }
 
 //eliminacion de recursos utilizados

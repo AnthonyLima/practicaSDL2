@@ -2,6 +2,8 @@
 
 using namespace std;
 
+SDL_Renderer* Window::w_renderer = nullptr;
+
 //constructor de la ventana indicando las dimensiones
 Window::Window(int width, int height):w_width(width),w_height(height)
 {}

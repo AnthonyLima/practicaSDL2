@@ -14,7 +14,7 @@ public:
 	void destruirVentana();
 	void limpiarRender();
 	void mostrarRender();
-	SDL_Renderer* w_renderer;
+	static SDL_Renderer* w_renderer;
 
 private:
 	int w_width;

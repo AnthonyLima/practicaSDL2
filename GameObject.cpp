@@ -1,11 +1,18 @@
 #include "GameObject.hpp"
 
+struct animaciones{
+	int nroFrames;
+	int columnaInicial;
+	int filaInicial;
+};
+
+
+
 //contructor de los objetos del juego
 //tener en consideracion las dimensiones exactas y conversiones si desean aumentar o reducir la imagen
-GameObject::GameObject(const char* pngFiel, SDL_Renderer* ren, int x, int y, int widthObject, int heightObject)
+GameObject::GameObject(const char* pngFiel, int x, int y, int widthObject, int heightObject)
 {
-	objRenderer = ren;
-	objTexture = TextureManager::loadTexture(pngFiel,ren);
+	objTexture = TextureManager::loadTexture(pngFiel);
 	xPos = x;
 	yPos = y;
 
@@ -22,7 +29,7 @@ GameObject::~GameObject()
 
 void GameObject::render()
 {
-	SDL_RenderCopy(objRenderer,objTexture,&srcRect,&desRect);
+	SDL_RenderCopy(Window::w_renderer,objTexture,&srcRect,&desRect);
 }
 
 void GameObject::update()

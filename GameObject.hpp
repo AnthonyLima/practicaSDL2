@@ -7,7 +7,7 @@
 class GameObject
 {
 public:
-	GameObject(const char* pngFile, SDL_Renderer* ren, int x, int y, int widthObject, int heightObject);
+	GameObject(const char* pngFile, int x, int y, int widthObject, int heightObject);
 	~GameObject();
 	void render();
 	void update();
@@ -20,7 +20,6 @@ private:
 	int yPos;
 	SDL_Texture* objTexture;
 	SDL_Rect srcRect, desRect;
-	SDL_Renderer* objRenderer;
 };
 
 #endif
